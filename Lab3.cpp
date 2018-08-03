@@ -1,11 +1,12 @@
 #include <iostream>
 #include <math.h>
-
+#define PI  3.14159265359
 using namespace std;
 
 void ejer1();
 void ejer2();
 void ejer3();
+long fact(long);
 
 int main() {
 	
@@ -70,9 +71,42 @@ void ejer1() {
 
 }
 void ejer2() {
+	int x;
+	double seno = 0, coseno = 0, rad;
 
+	cout<<"Ingrese X: "<<endl;
+	cin>> x;
+
+	rad = x * PI / 180; 
+
+	for(int i = 0; i < 20; i++){
+		seno += ((pow(-1,i)) / (fact((2*i)+1))) * (pow(rad,(2*i)+1)); 
+
+		coseno += ((pow(-1,i)) / (fact(2*i))) * (pow(rad,2*i));
+	}
+	cout<<"El Seno de "<<rad<<" es: "<<seno<<endl;
+	cout<<"El Coseno de "<<rad<<" es: "<<coseno<<endl;
 }
 
 void ejer3() {
+	int n, r, s;
+	long resp;
+	
+	cout<<"Ingrese las filas: "<<endl;
+	cin>> s;
 
+	resp = (fact(n) / fact(r)) * (fact(n-r));
+      	
+	for(n = 0; n < s; n++) {
+		//for(r = 0; r < n )
+	}
+		
+}
+
+long fact(long n){
+	if(n == 0) {
+		return 1;
+	}else{
+		return n * fact(n-1);
+	}
 }
